@@ -1,2 +1,2 @@
 # PuppetCore
-PuppetCore
+PuppetCore is a NodeJS package to allow easily using Puppeteer to navigate websites to retrieve and submit information.
