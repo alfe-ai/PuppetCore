@@ -1,7 +1,4 @@
 [DEFAULT]
-notiontoken=YOUR_NOTION_TOKEN
-uspsAccountEmail=YOUR_USPS_ACCOUNT_EMAIL
-uspsAccountPassword=YOUR_USPS_ACCOUNT_PASSWORD
 # Path to your Chrome / Chromium executable
 chromePath=/usr/bin/chromium
 # Directory where Chrome profile will be stored‑‑keeps you logged in
