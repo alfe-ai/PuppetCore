@@ -1,0 +1,5 @@
+.idea/
+.patchfiles_gitignore/
+.patchfiles_ignore/
+node_modules/
+*.swp
