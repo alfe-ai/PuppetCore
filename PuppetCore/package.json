@@ -1,8 +1,14 @@
 {
-  "name": "PuppetCore",
+  "name": "puppetcore",
   "version": "0.20.20",
   "description": "A generic Puppeteer interface module.",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "flow",
+    "config",
+    "scripts"
+  ],
   "scripts": {
     "start": "node index.js"
   },

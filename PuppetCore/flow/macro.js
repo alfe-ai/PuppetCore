@@ -151,6 +151,11 @@ async function newChat() {
     console.log('newChat() called (placeholder)');
 }
 
+async function waitForNewChatButton() {
+    // Placeholder function to simulate waiting for a "New chat" button
+    await sleep(1);
+}
+
 module.exports = {
     loadChatGPT,
     addInput,
