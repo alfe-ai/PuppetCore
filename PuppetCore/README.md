@@ -1,9 +1,10 @@
-# PuppetCore
-PuppetCore is a NodeJS package to allow easily using Puppeteer to navigate websites to retrieve and submit information.
+# PuppetCore  
+PuppetCore is a NodeJS package to allow easily using Puppeteer to navigate websites to retrieve and submit information.  
+https://github.com/faybian-os/PuppetCore  
+https://www.npmjs.com/package/puppetcore  
 
-## Publishing
-To publish:
-1. Log in to npm (npm login).
-2. From the PuppetCore folder: npm publish
+#### Publishing
+To publish:  
 
-### TODO: Measure code coverage with typical Puppet(s) and remove unneeded code.
+Log in to npm (npm login).  
+From the PuppetCore folder: `npm publish`  
