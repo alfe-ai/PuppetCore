@@ -1,6 +1,6 @@
 {
   "name": "puppetcore",
-  "version": "0.20.22",
+  "version": "0.20.23",
   "description": "A generic Puppeteer interface module.",
   "main": "index.js",
   "files": [
@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Lochner Technology",
+  "author": "Lochner Technology https://lochner.tech",
   "license": "CC0-1.0",
   "dependencies": {
     "ini": "^5.0.0",
