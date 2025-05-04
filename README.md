@@ -3,7 +3,7 @@ PuppetCore is a NodeJS package to allow easily using Puppeteer to navigate websi
 https://github.com/faybian-os/PuppetCore  
 https://www.npmjs.com/package/puppetcore  
 
-####Publishing
+#### Publishing
 To publish:  
 
 Log in to npm (npm login).  
