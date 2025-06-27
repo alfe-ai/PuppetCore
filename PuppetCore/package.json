@@ -1,6 +1,6 @@
 {
   "name": "puppetcore",
-  "version": "0.20.23",
+  "version": "0.20.24",
   "description": "A generic Puppeteer interface module.",
   "main": "index.js",
   "files": [

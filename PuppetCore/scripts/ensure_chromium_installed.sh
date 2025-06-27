@@ -1,37 +1,60 @@
 #!/bin/bash
 
+if [[ -n "${DEBUG:-}" ]]; then
+  set -x
+fi
+
 # Ensure Chromium is installed, and update config.ini with the correct path
 
 CONFIG_FILE="$(dirname "$0")/../config/config.ini"
 CONFIG_FILE="$(realpath "$CONFIG_FILE")"
 
 echo "Config file path: $CONFIG_FILE"
+echo "Running on: $(uname -a)"
 
-# Check if Chromium is installed
-if ! command -v chromium > /dev/null 2>&1; then
+# ---------------------------------------------------------------------------
+# Locate a Chromium/Chrome executable
+# ---------------------------------------------------------------------------
+
+# Respect CHROME_PATH env if provided and executable
+if [[ -n "${CHROME_PATH:-}" && -x "${CHROME_PATH}" ]]; then
+  CHROMIUM_PATH="${CHROME_PATH}"
+else
+  for c in chromium chromium-browser google-chrome google-chrome-stable; do
+    if command -v "$c" >/dev/null 2>&1; then
+      CHROMIUM_PATH="$(command -v "$c")"
+      break
+    fi
+  done
+fi
+
+if [[ -z "$CHROMIUM_PATH" ]]; then
   echo "Chromium is not installed. Installing Chromium..."
 
-  # Detect package manager and install Chromium
   if [ -f /etc/debian_version ]; then
     # Debian/Ubuntu
     sudo apt update
-    sudo apt install -y chromium
+    sudo apt install -y chromium || sudo apt install -y chromium-browser || true
   else
-    echo "Unsupported OS. Please install Chromium manually."
+    echo "Unsupported OS. Please install Chromium manually." >&2
     exit 1
   fi
-else
-  echo "Chromium is already installed."
+
+  # Re-check after attempted install
+  for c in chromium chromium-browser google-chrome google-chrome-stable; do
+    if command -v "$c" >/dev/null 2>&1; then
+      CHROMIUM_PATH="$(command -v "$c")"
+      break
+    fi
+  done
 fi
 
-# Find the Chromium executable path
-CHROMIUM_PATH=$(which chromium)
-if [ -z "$CHROMIUM_PATH" ]; then
-  echo "Could not find Chromium executable."
+if [[ -z "$CHROMIUM_PATH" ]]; then
+  echo "Could not find Chromium executable." >&2
   exit 1
+else
+  echo "Chromium path: $CHROMIUM_PATH"
 fi
-
-echo "Chromium path: $CHROMIUM_PATH"
 
 # Update config.ini
 echo "Updating config.ini..."
